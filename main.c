@@ -50,12 +50,14 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
       mg_http_reply(c, 200, "", "ok\n");
     } else {
       struct mg_http_serve_opts opts = {.root_dir = s_root_dir};
-      mg_http_serve_dir_ext(c, hm, &opts);
+      mg_http_message_handle(c, hm, &opts);
     }
   }
 }
 
 int main(void) {
+  // 初始化中间件
+  middleware_init();
   struct mg_mgr mgr;                            // Event manager
   mg_log_set(MG_LL_INFO);                       // Set to 3 to enable debug
   mg_mgr_init(&mgr);                            // Initialise event manager
@@ -65,5 +67,7 @@ int main(void) {
   mg_free(s_config.url);
   mg_free(s_config.pub);
   mg_free(s_config.sub);
+  // 释放中间件资源
+  middleware_deinit();
   return 0;
 }
