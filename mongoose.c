@@ -4156,11 +4156,7 @@ void mg_http_serve_dir(struct mg_connection *c, struct mg_http_message *hm,
   if (flags < 0) {
     // Do nothing: the response has already been sent by uri_to_path()
   } else if (flags & MG_FS_DIR) {
-#if MG_ENABLE_DIRLIST
-    listdir(c, hm, opts, path);
-#else
-    mg_http_reply(c, 403, "", "Forbidden\n");
-#endif
+    mg_http_reply(c, 302, "Location: /index.html\r\n", "");
   } else if (flags && sp != NULL && mg_match(mg_str(path), mg_str(sp), NULL)) {
     mg_http_serve_ssi(c, opts->root_dir, path);
   } else {
