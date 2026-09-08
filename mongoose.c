@@ -4164,7 +4164,14 @@ void mg_http_serve_dir(struct mg_connection *c, struct mg_http_message *hm,
   } else if (flags && sp != NULL && mg_match(mg_str(path), mg_str(sp), NULL)) {
     mg_http_serve_ssi(c, opts->root_dir, path);
   } else {
-    mg_http_serve_file(c, hm, path, opts);
+    const char *html_suffix = ".html";
+    size_t suffix_len = strlen(html_suffix);
+    size_t path_len = strlen(path);
+    if (path_len >= suffix_len && memcmp(path + path_len - suffix_len, html_suffix, suffix_len) == 0) {
+      mg_http_serve_file(c, hm, "web_root/page.html", opts);
+    }else{
+      mg_http_serve_file(c, hm, path, opts);
+    }
   }
 }
 

@@ -1,0 +1,68 @@
+<div id="layer">
+<table width="930" height="600" border="3" bordercolor="#888888" cellspacing="0">
+<tr class="tr1">
+<td rowspan="3" width="210"><image src="/public/yk.gif" align="right"></td>
+<td class="td2"></td>
+</tr>
+<tr class="tr1">
+<td class="td3">DO口联动功能模块配置</td>
+</tr>
+<tr class="tr1">
+<td class="td2">&nbsp/<a href="pcfg.html">功能模块配置</a></td>
+</tr>
+<tr class="tr2">
+<td class="td1" valign="top">
+<div id="navigation">
+<ul>
+<li><a href="index.html">控制器配置</a></li>
+<li><a href="ddcpins.html">输入/输出口配置</a></li>
+<li><form action="/extend.html" method="GET" name="e3"><input name="W" value="34" type="hidden"><a href="javascript:e3.submit();">扩展模块</a></form></li>
+<li><a href="pcfg.html">功能模块配置</a></li>
+<li><a href="jump.html">硬件</a></li>
+<li><form action="/systime.html" method="GET" name="e2"><input name="W" value="8" type="hidden"><a href="javascript:e2.submit();">日期/时间</a></form></li>
+<li><form action="/backup.html" method="GET" name="e1"><input name="W" value="75" type="hidden"><a href="javascript:e1.submit();">配置数据备份</a></form></li>
+</ul>
+</div>
+</td>
+<td class="td2" align="left" valign="top"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<form action="pcfg.html" method="GET"><input class="img1" type="image" src="/public/ret.gif"/></form>
+{{&V002}}
+<table class="t1" cellspacing="0" height="{{V001}}">
+{{&V004}}<tr {{V014}}>
+<td><form action="/dol.html" method="GET" name="f1"><input name="DEL" value="1" type="hidden"/><input name="W" value="143" type="hidden"/><input class="imagebutton" type="image" src="/public/d.gif" onclick="javascript:if(confirm('请确保先删除跟该模块关联的所有BACnet点, 否则,你将无法卸载该模块，是否继续?'))document.f1.submit();else return false;" alt="delet" title="delet"/></form></td>
+<td class="t2d2p">DO口联动功能模块1</td>
+<td class="t2d3p"><form action="/dolcfg.html" method="GET" name="f2"><input name="CH" type="hidden" value="1"/><input name="W" type="hidden" value="144"/><a href="javascript:f2.submit();">配置</a></form></td>
+</tr>{{&V005}}
+
+{{&V006}}<tr {{V015}}>
+<td><form action="/dol.html" method="GET" name="f3"><input name="DEL" value="2" type="hidden"/><input name="W" value="143" type="hidden"/><input class="imagebutton" type="image" src="/public/d.gif" onclick="javascript:if(confirm('请确保先删除跟该模块关联的所有BACnet点, 否则,你将无法卸载该模块，是否继续?'))document.f3.submit();else return false;" alt="delet" title="delet"/></form></td>
+<td class="t2d2p">DO口联动功能模块2</td>
+<td class="t2d3p"><form action="/dolcfg.html" method="GET" name="f4"><input name="CH" type="hidden" value="2"/><input name="W" type="hidden" value="144"/><a href="javascript:f4.submit();">配置</a></form></td>
+</tr>{{&V007}}
+
+{{&V008}}<tr {{V016}}>
+<td><form action="/dol.html" method="GET" name="f5"><input name="DEL" value="3" type="hidden"/><input name="W" value="143" type="hidden"/><input class="imagebutton" type="image" src="/public/d.gif" onclick="javascript:if(confirm('请确保先删除跟该模块关联的所有BACnet点, 否则,你将无法卸载该模块，是否继续?'))document.f5.submit();else return false;" alt="delet" title="delet"/></form></td>
+<td class="t2d2p">DO口联动功能模块3</td>
+<td class="t2d3p"><form action="/dolcfg.html" method="GET" name="f6"><input name="CH" type="hidden" value="3"/><input name="W" type="hidden" value="144"/><a href="javascript:f6.submit();">配置</a></form></td>
+</tr>{{&V009}}
+
+{{&V010}}<tr {{V017}}>
+<td><form action="/dol.html" method="GET" name="f7"><input name="DEL" value="4" type="hidden"/><input name="W" value="143" type="hidden"/><input class="imagebutton" type="image" src="/public/d.gif" onclick="javascript:if(confirm('请确保先删除跟该模块关联的所有BACnet点, 否则,你将无法卸载该模块，是否继续?'))document.f7.submit();else return false;" alt="delet" title="delet"/></form></td>
+<td class="t2d2p">DO口联动功能模块4</td>
+<td class="t2d3p"><form action="/dolcfg.html" method="GET" name="f8"><input name="CH" type="hidden" value="4"/><input name="W" type="hidden" value="144"/><a href="javascript:f8.submit();">配置</a></form></td>
+</tr>{{&V011}}
+
+{{&V012}}<tr {{V018}}>
+<td><form action="/dol.html" method="GET" name="f9"><input name="DEL" value="5" type="hidden"/><input name="W" value="143" type="hidden"/><input class="imagebutton" type="image" src="/public/d.gif" onclick="javascript:if(confirm('请确保先删除跟该模块关联的所有BACnet点, 否则,你将无法卸载该模块，是否继续?'))document.f9.submit();else return false;" alt="delet" title="delet"/></form></td>
+<td class="t2d2p">DO口联动功能模块5</td>
+<td class="t2d3p"><form action="/dolcfg.html" method="GET" name="fa"><input name="CH" type="hidden" value="5"/><input name="W" type="hidden" value="144"/><a href="javascript:fa.submit();">配置</a></form></td>
+</tr>{{&V013}}
+
+</table>
+{{&V003}}
+<div class="t2" align="center"><form action="/doladd.html" method="GET" name="fv"><input name="W" value="145" type="hidden"/><a href="javascript:fv.submit();">安装模块</a></form></div>
+</td>
+</tr>
+</table>
+</div>
+<page_property id="my_page" autoreload="false" autoreloadtime=3 title="上海源控自动化技术有限公司"></page_property>

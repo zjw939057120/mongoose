@@ -1,0 +1,69 @@
+<div id="layer">
+<table width="930" height="600" border="3" bordercolor="#888888" cellspacing="0">
+<tr class="tr1">
+<td rowspan="3" width="210"><image src="/public/yk.gif" align="right"></td>
+<td class="td2"></td>
+</tr>
+<tr class="tr1">
+<td class="td3">输出变量属性配置</td>
+</tr>
+<tr class="tr1">
+<td class="td2">&nbsp/<a href="pcfg.html">功能模块配置</a>/<form style="margin:0px;display:inline;" action="/pid.html" method="GET" name="f1"><input name="W" value="137" type="hidden"><a href="javascript:f1.submit();">PID功能模块配置</a></form>/<form style="margin:0px;display:inline;" action="/pidcfg.html" method="GET" name="f2"><input name="W" value="138" type="hidden"><a href="javascript:f2.submit();">PID功能模块{{V001}}配置</a></form></td>
+</tr>
+<tr class="tr2">
+<td class="td1" valign="top">
+<div id="navigation">
+<ul>
+<li><a href="index.html">控制器配置</a></li>
+<li><a href="ddcpins.html">输入/输出口配置</a></li>
+<li><form action="/extend.html" method="GET" name="e3"><input name="W" value="34" type="hidden"><a href="javascript:e3.submit();">扩展模块</a></form></li>
+<li><a href="pcfg.html">功能模块配置</a></li>
+<li><a href="jump.html">硬件</a></li>
+<li><form action="/systime.html" method="GET" name="e2"><input name="W" value="8" type="hidden"><a href="javascript:e2.submit();">日期/时间</a></form></li>
+<li><form action="/backup.html" method="GET" name="e1"><input name="W" value="75" type="hidden"><a href="javascript:e1.submit();">配置数据备份</a></form></li>
+</ul>
+</div>
+</td>
+<td class="td2" align="left" valign="top"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<form action="/pidcfg.html" method="GET"><input name="W" value="138" type="hidden"><input class="img1" type="image" src="/public/ret.gif"/></form>
+<table class="t1" cellspacing="0" height="{{V004}}">
+<tr>
+<td class="t1d1"><input class="imagebutton" type="image" src="/public/d.gif"/></td>
+<td class="t1d2">执行器最大动作量</td>
+<td class="t1d3"><form action="/txt.html" method="GET" name="f3"><input name="W" value="7" type="hidden"/><input name="C" value="{{V011}}" type="hidden"/><input name="V" value="{{V012}}" type="hidden"/><input name="RET" value="/pidnvocfg.html" type="hidden"/><input name="RETW" value="40" type="hidden"/><a href="javascript:f3.submit();">{{V012}}</a>%</form></td></tr>
+
+<tr class="t1r1">
+<td class="t1d1"><input class="imagebutton" type="image" src="/public/d.gif"/></td>
+<td class="t1d2">执行器最大开度</td>
+<td class="t1d3"><form action="/txt.html" method="GET" name="f4"><input name="W" value="7" type="hidden"/><input name="C" value="{{V017}}" type="hidden"/><input name="V" value="{{V018}}" type="hidden"/><input name="RET" value="/pidnvocfg.html" type="hidden"/><input name="RETW" value="40" type="hidden"/><a href="javascript:f4.submit();">{{V018}}</a>%</form></td></tr>
+
+<tr>
+<td class="t1d1"><input class="imagebutton" type="image" src="/public/d.gif"/></td>
+<td class="t1d2">执行器最小开度</td>
+<td class="t1d3"><form action="/txt.html" method="GET" name="f5"><input name="W" value="7" type="hidden"/><input name="C" value="{{V024}}" type="hidden"/><input name="V" value="{{V025}}" type="hidden"/><input name="RET" value="/pidnvocfg.html" type="hidden"/><input name="RETW" value="40" type="hidden"/><a href="javascript:f5.submit();">{{V025}}</a>%</form></td></tr>
+
+<tr class="t1r1">
+<td class="t1d1"><input class="imagebutton" type="image" src="/public/d.gif"/></td>
+<td class="t1d2">正作用模式下的缺省输出开度</td>
+<td class="t1d3"><form action="/txt.html" method="GET" name="f6"><input name="W" value="7" type="hidden"/><input name="C" value="{{V027}}" type="hidden"/><input name="V" value="{{V028}}" type="hidden"/><input name="RET" value="/pidnvocfg.html" type="hidden"/><input name="RETW" value="40" type="hidden"/><a href="javascript:f6.submit();">{{V028}}</a>%</form></td></tr>
+
+<tr>
+<td class="t1d1"><input class="imagebutton" type="image" src="/public/d.gif"/></td>
+<td class="t1d2">反作用模式下的缺省输出开度</td>
+<td class="t1d3"><form action="/txt.html" method="GET" name="f7"><input name="W" value="7" type="hidden"/><input name="C" value="{{V030}}" type="hidden"/><input name="V" value="{{V031}}" type="hidden"/><input name="RET" value="/pidnvocfg.html" type="hidden"/><input name="RETW" value="40" type="hidden"/><a href="javascript:f7.submit();">{{V031}}</a>%</form></td></tr>
+
+<tr class="t1r1">
+<td class="t1d1"><input class="imagebutton" type="image" src="/public/d.gif"/></td>
+<td class="t1d2">防冻报警时的缺省开度</td>
+<td class="t1d3"><form action="/txt.html" method="GET" name="f8"><input name="W" value="7" type="hidden"/><input name="C" value="{{V033}}" type="hidden"/><input name="V" value="{{V034}}" type="hidden"/><input name="RET" value="/pidnvocfg.html" type="hidden"/><input name="RETW" value="40" type="hidden"/><a href="javascript:f8.submit();">{{V034}}</a>%</form></td></tr>
+
+{{&V002}}<tr><td class="t1d1"><form action="/pidnvocfg.html" method="GET" name="f9"><input name="W" value="40" type="hidden"><input name="DEL" value="{{V005}}" type="hidden"><input class="imagebutton" type="image" src="/public/d.gif" alt="delet" title="delet"/></form></td>
+<td class="t1d2"><form action="{{V006}}" method="GET" name="fa"><input name="W" value="{{V009}}" type="hidden"><input name="CH" value="{{V007}}" type="hidden"><input name="BACRET" value="/pidnvocfg.html" type="hidden"/><input name="RETW" value="40" type="hidden"><a href="javascript:fa.submit();">{{V008}}</a></form></td>
+<td class="t1d3"></td></tr>{{&V003}}
+</table>
+<div class="t2"  align="center"><form action="/pidnvcfgadd.html" method="GET" name="fb"><input name="W" value="40" type="hidden"><input name="ADDW" value="2" type="hidden"><a href="javascript:fb.submit();">关联BACnet点</a></form></div>
+</td>
+</tr>
+</table>
+</div>
+<page_property id="my_page" autoreload="false" autoreloadtime=1 title="上海源控自动化技术有限公司"></page_property>

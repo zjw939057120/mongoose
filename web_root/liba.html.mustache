@@ -1,0 +1,225 @@
+<div id="layer">
+<table width="930" height="600" border="3" bordercolor="#888888" cellspacing="0">
+<tr class="tr1">
+<td rowspan="3" width="210"><image src="/public/yk.gif" align="right"></td>
+<td class="td2"></td>
+</tr>
+<tr class="tr1">
+<td class="td3">参数修改</td>
+</tr>
+<tr class="tr1">
+<td class="td2"></td>
+</tr>
+<tr class="tr2">
+<td class="td1" valign="top">
+<div id="navigation">
+<ul>
+<li><a href="index.html">控制器配置</a></li>
+<li><a href="ddcpins.html">输入/输出口配置</a></li>
+<li><form action="/extend.html" method="GET" name="e3"><input name="W" value="34" type="hidden"><a href="javascript:e3.submit();">扩展模块</a></form></li>
+<li><a href="pcfg.html">功能模块配置</a></li>
+<li><a href="jump.html">硬件</a></li>
+<li><form action="/systime.html" method="GET" name="e2"><input name="W" value="8" type="hidden"><a href="javascript:e2.submit();">日期/时间</a></form></li>
+<li><form action="/backup.html" method="GET" name="e1"><input name="W" value="75" type="hidden"><a href="javascript:e1.submit();">配置数据备份</a></form></li>
+</ul>
+</div>
+</td>
+<td class="td2" align="left" valign="top"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<form action="{{V001}}" method="GET" name="f2"><input name="W" value="{{V002}}" type="hidden"/><input name="C" value="{{V003}}" type="hidden"/><input name="NS" value="{{V099}}" type="hidden"/>
+<table class="t1" cellspacing="0" height="30">
+<tr>
+<td class="t1d4">设置值</td>
+<td class="t1d2">
+<select name="L">
+<option value="0" selected>None</option>
+<option value="7" >UI_1</option>
+<option value="8" >UI_2</option>
+<option value="9" >UI_3</option>
+<option value="10" >UI_4</option>
+<option value="11" >UI_5</option>
+<option value="12" >UI_6</option>
+<option value="13" >UI_7</option>
+<option value="14" >UI_8</option>
+<option value="15" >UI_9</option>
+<option value="16" >UI_10</option>
+<option value="17" >UI_11</option>
+<option value="18" >RunTime_1</option>
+<option value="19" >RunTime_2</option>
+<option value="20" >RunTime_3</option>
+<option value="21" >RunTime_4</option>
+<option value="22" >RunTime_5</option>
+<option value="23" >RunTime_6</option>
+<option value="24" >RunTime_7</option>
+<option value="25" >RunTime_8</option>
+<option value="26" >RunTime_9</option>
+<option value="27" >RunTime_10</option>
+<option value="65" >YK_CSW_CO2</option>
+<option value="70" >AC_Humidification_Valve_1</option>
+<option value="71" >AC_Outside_Air_Damper_1</option>
+<option value="72" >AC_Return_Air_Valve_1</option>
+<option value="73" >AC_Exhaust_Valve_1</option>
+<option value="74" >AC_Hot_Water_Valve_1</option>
+<option value="75" >AC_Cool_Water_Valve_1</option>
+<option value="76" >AC_SFan_VFC_1</option>
+<option value="77" >AC_RFan_VFC_1</option>
+<option value="82" >AC_Humidification_Valve_2</option>
+<option value="83" >AC_Outside_Air_Damper_2</option>
+<option value="84" >AC_Return_Air_Valve_2</option>
+<option value="85" >AC_Exhaust_Valve_2</option>
+<option value="86" >AC_Hot_Water_Valve_2</option>
+<option value="87" >AC_Cool_Water_Valve_2</option>
+<option value="88" >AC_SFan_VFC_2</option>
+<option value="89" >AC_RFan_VFC_2</option>
+<option value="90" >AnalogFunction_1_A</option>
+<option value="92" >AnalogFunction_2_A</option>
+<option value="94" >AnalogFunction_3_A</option>
+<option value="96" >AnalogFunction_4_A</option>
+<option value="98" >AnalogFunction_5_A</option>
+<option value="100" >AnalogFunction_6_A</option>
+<option value="102" >AnalogFunction_7_A</option>
+<option value="104" >AnalogFunction_8_A</option>
+<option value="106" >AnalogFunction_9_A</option>
+<option value="108" >AnalogFunction_10_A</option>
+<option value="110" >AnalogFunction_11_A</option>
+<option value="112" >AnalogFunction_12_A</option>
+<option value="114" >AnalogFunction_13_A</option>
+<option value="116" >AnalogFunction_14_A</option>
+<option value="118" >AnalogFunction_15_A</option>
+<option value="120" >DigitalEncoder_1_A</option>
+<option value="122" >DigitalEncoder_2_A</option>
+<option value="124" >DigitalEncoder_3_A</option>
+<option value="126" >DigitalEncoder_4_A</option>
+<option value="128" >DigitalEncoder_5_A</option>
+<option value="130" >DigitalEncoder_6_A</option>
+<option value="132" >DigitalEncoder_7_A</option>
+<option value="134" >DigitalEncoder_8_A</option>
+<option value="136" >DigitalEncoder_9_A</option>
+<option value="138" >DigitalEncoder_10_A</option>
+<option value="160" >PID_1</option>
+<option value="161" >PID_2</option>
+<option value="162" >PID_3</option>
+<option value="163" >PID_4</option>
+<option value="164" >PID_5</option>
+<option value="175" >5DI1AI1AO3DO_1_AI</option>
+<option value="181" >5DI1AI1AO3DO_2_AI</option>
+<option value="187" >5DI1AI1AO3DO_3_AI</option>
+<option value="193" >5DI1AI1AO3DO_4_AI</option>
+<option value="199" >5DI1AI1AO3DO_5_AI</option>
+<option value="205" >5DI1AI1AO3DO_6_AI</option>
+<option value="310" >8UI4DO_1_AI1</option>
+<option value="311" >8UI4DO_1_AI2</option>
+<option value="312" >8UI4DO_1_AI3</option>
+<option value="313" >8UI4DO_1_AI4</option>
+<option value="314" >8UI4DO_1_AI5</option>
+<option value="315" >8UI4DO_1_AI6</option>
+<option value="316" >8UI4DO_1_AI7</option>
+<option value="317" >8UI4DO_1_AI8</option>
+<option value="326" >8UI4DO_2_AI1</option>
+<option value="327" >8UI4DO_2_AI2</option>
+<option value="328" >8UI4DO_2_AI3</option>
+<option value="329" >8UI4DO_2_AI4</option>
+<option value="330" >8UI4DO_2_AI5</option>
+<option value="331" >8UI4DO_2_AI6</option>
+<option value="332" >8UI4DO_2_AI7</option>
+<option value="333" >8UI4DO_2_AI8</option>
+<option value="342" >8UI4DO_3_AI1</option>
+<option value="343" >8UI4DO_3_AI2</option>
+<option value="344" >8UI4DO_3_AI3</option>
+<option value="345" >8UI4DO_3_AI4</option>
+<option value="346" >8UI4DO_3_AI5</option>
+<option value="347" >8UI4DO_3_AI6</option>
+<option value="348" >8UI4DO_3_AI7</option>
+<option value="349" >8UI4DO_3_AI8</option>
+<option value="358" >8UI4DO_4_AI1</option>
+<option value="359" >8UI4DO_4_AI2</option>
+<option value="360" >8UI4DO_4_AI3</option>
+<option value="361" >8UI4DO_4_AI4</option>
+<option value="362" >8UI4DO_4_AI5</option>
+<option value="363" >8UI4DO_4_AI6</option>
+<option value="364" >8UI4DO_4_AI7</option>
+<option value="365" >8UI4DO_4_AI8</option>
+<option value="374" >8UI4DO_5_AI1</option>
+<option value="375" >8UI4DO_5_AI2</option>
+<option value="376" >8UI4DO_5_AI3</option>
+<option value="377" >8UI4DO_5_AI4</option>
+<option value="378" >8UI4DO_5_AI5</option>
+<option value="379" >8UI4DO_5_AI6</option>
+<option value="380" >8UI4DO_5_AI7</option>
+<option value="381" >8UI4DO_5_AI8</option>
+<option value="390" >8UI4DO_6_AI1</option>
+<option value="391" >8UI4DO_6_AI2</option>
+<option value="392" >8UI4DO_6_AI3</option>
+<option value="393" >8UI4DO_6_AI4</option>
+<option value="394" >8UI4DO_6_AI5</option>
+<option value="395" >8UI4DO_6_AI6</option>
+<option value="396" >8UI4DO_6_AI7</option>
+<option value="397" >8UI4DO_6_AI8</option>
+<option value="406" >8UI4AO_1_AI1</option>
+<option value="407" >8UI4AO_1_AI2</option>
+<option value="408" >8UI4AO_1_AI3</option>
+<option value="409" >8UI4AO_1_AI4</option>
+<option value="410" >8UI4AO_1_AI5</option>
+<option value="411" >8UI4AO_1_AI6</option>
+<option value="412" >8UI4AO_1_AI7</option>
+<option value="413" >8UI4AO_1_AI8</option>
+<option value="422" >8UI4AO_2_AI1</option>
+<option value="423" >8UI4AO_2_AI2</option>
+<option value="424" >8UI4AO_2_AI3</option>
+<option value="425" >8UI4AO_2_AI4</option>
+<option value="426" >8UI4AO_2_AI5</option>
+<option value="427" >8UI4AO_2_AI6</option>
+<option value="428" >8UI4AO_2_AI7</option>
+<option value="429" >8UI4AO_2_AI8</option>
+<option value="438" >8UI4AO_3_AI1</option>
+<option value="439" >8UI4AO_3_AI2</option>
+<option value="440" >8UI4AO_3_AI3</option>
+<option value="441" >8UI4AO_3_AI4</option>
+<option value="442" >8UI4AO_3_AI5</option>
+<option value="443" >8UI4AO_3_AI6</option>
+<option value="444" >8UI4AO_3_AI7</option>
+<option value="445" >8UI4AO_3_AI8</option>
+<option value="454" >8UI4AO_4_AI1</option>
+<option value="455" >8UI4AO_4_AI2</option>
+<option value="456" >8UI4AO_4_AI3</option>
+<option value="457" >8UI4AO_4_AI4</option>
+<option value="458" >8UI4AO_4_AI5</option>
+<option value="459" >8UI4AO_4_AI6</option>
+<option value="460" >8UI4AO_4_AI7</option>
+<option value="461" >8UI4AO_4_AI8</option>
+<option value="470" >8UI4AO_5_AI1</option>
+<option value="471" >8UI4AO_5_AI2</option>
+<option value="472" >8UI4AO_5_AI3</option>
+<option value="473" >8UI4AO_5_AI4</option>
+<option value="474" >8UI4AO_5_AI5</option>
+<option value="475" >8UI4AO_5_AI6</option>
+<option value="476" >8UI4AO_5_AI7</option>
+<option value="477" >8UI4AO_5_AI8</option>
+<option value="486" >8UI4AO_6_AI1</option>
+<option value="487" >8UI4AO_6_AI2</option>
+<option value="488" >8UI4AO_6_AI3</option>
+<option value="489" >8UI4AO_6_AI4</option>
+<option value="490" >8UI4AO_6_AI5</option>
+<option value="491" >8UI4AO_6_AI6</option>
+<option value="492" >8UI4AO_6_AI7</option>
+<option value="493" >8UI4AO_6_AI8</option>
+</select>
+</td>
+<td></td>
+</tr>
+</table>
+<div id="bhref1">
+<input class="button3" type="submit" value="确认" onclick="javascript:document.f2.submit();"/>
+</div>
+</form>
+<form action="{{V001}}" method="GET" name="f3">
+<input name="W" value="{{V002}}" type="hidden"/>
+<input name="NS" value="{{V099}}" type="hidden"/>
+<div id="bhref1">
+<input class="button3" type="submit" value="取消" onclick="javascript:document.f3.submit();"/>
+</div>
+</form>
+</td>
+</tr>
+</table>
+</div>
+<page_property id="my_page" autoreload="false" autoreloadtime=3 title="上海源控自动化技术有限公司"></page_property>

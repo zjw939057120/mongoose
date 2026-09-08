@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html><head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+<link rel="shortcut icon" href="/public/yklogo.ico" />
+<link href="/public/yk.css" rel=stylesheet type=text/css>
+</head>
+<body link="#000000" alink="#000000" vlink="#000000">
+
+<script>
+    function GetPageName() {
+        var currentURL = window.location.href;
+        var documentName = currentURL.substring(currentURL.lastIndexOf("/") + 1);
+        documentName = documentName.split("?")[0].split("#")[0];
+        return documentName;
+    }
+
+    function Req(type, url, data, callback,error) {
+        var xhr = new XMLHttpRequest();
+        xhr.open(type, url, true);
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        var jsonPayload = JSON.stringify(data);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    callback(xhr.responseText);
+                } else if (xhr.status == 301 || xhr.status == 302 || xhr.status == 429) {
+                    Req(type, url, data, callback);
+                } else {
+                    error(xhr.status,xhr.responseText);
+                }
+            }
+        };
+        xhr.send(jsonPayload);
+    }
+
+    function ReloadPage(url) {
+        console.info("RealoadPage: "+url + ".mustache");
+        Req("GET", url + ".mustache", "", function (data) {
+            document.body.innerHTML = data;
+            if (document.getElementById("my_page").getAttribute("autoreload") == 'true') {
+                startReloadTimer(document.getElementById("my_page").getAttribute("autoreloadtime"));
+            }
+            if (document.getElementById("my_page").getAttribute("title") != null) {
+                document.title = document.getElementById("my_page").getAttribute("title");
+            }
+        },function (code,text) {
+            document.body.innerHTML = "errorcode is "+code+" response "+text;
+        })
+    }
+
+    function startReloadTimer(time) {
+        setTimeout(function () {
+            ReloadPage(GetPageName());
+        }, Number(time)*1000); // 2000毫秒 = 2秒
+    }
+
+    window.onload = function () {
+        ReloadPage(GetPageName());
+    };
+    
+    function downFile(url, file) {
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+    xhr.responseType = "blob";
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            const blob = xhr.response;
+            const link = document.createElement('a');
+            link.href = window.URL.createObjectURL(blob);
+            link.download = file;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    };
+    xhr.send();
+   }
+
+    function showtime()
+   {
+     var now_time=new Date();
+     var year=now_time.getFullYear();
+     var month=now_time.getMonth()+1;
+     var date=now_time.getDate();
+     var hour=now_time.getHours();
+     var minute=now_time.getMinutes();
+     var second=now_time.getSeconds();
+     document.realtime.t1.value=year;
+     document.realtime.t2.value=month;
+     document.realtime.t3.value=date;
+     document.realtime.t4.value=hour;
+     document.realtime.t5.value=minute;
+     document.realtime.t6.value=second;
+     setTimeout("showtime()",1000);
+   }
+   setTimeout("showtime()",1000); 
+</script>
+
+</body></html>

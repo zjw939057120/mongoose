@@ -1,0 +1,244 @@
+<div id="layer">
+<table width="930" height="600" border="3" bordercolor="#888888" cellspacing="0">
+<tr class="tr1">
+<td rowspan="3" width="210"><image src="/public/yk.gif" align="right"></td>
+<td class="td2"></td>
+</tr>
+<tr class="tr1">
+<td class="td3">参数修改</td>
+</tr>
+<tr class="tr1">
+<td class="td2"></td>
+</tr>
+<tr class="tr2">
+<td class="td1" valign="top">
+<div id="navigation">
+<ul>
+<li><a href="index.html">控制器配置</a></li>
+<li><a href="ddcpins.html">输入/输出口配置</a></li>
+<li><form action="/extend.html" method="GET" name="e3"><input name="W" value="34" type="hidden"><a href="javascript:e3.submit();">扩展模块</a></form></li>
+<li><a href="pcfg.html">功能模块配置</a></li>
+<li><a href="jump.html">硬件</a></li>
+<li><form action="/systime.html" method="GET" name="e2"><input name="W" value="8" type="hidden"><a href="javascript:e2.submit();">日期/时间</a></form></li>
+<li><form action="/backup.html" method="GET" name="e1"><input name="W" value="75" type="hidden"><a href="javascript:e1.submit();">配置数据备份</a></form></li>
+</ul>
+</div>
+</td>
+<td class="td2" align="left" valign="top"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<form action="{{V001}}" method="GET" name="f2"><input name="W" value="{{V002}}" type="hidden"><input name="C" value="{{V003}}" type="hidden">
+<table class="t1" cellspacing="0" height="30">
+<tr>
+<td class="t1d4">设置值</td>
+<td class="t1d2">
+<select name="L">
+<option value="0" selected>m&#178</option>
+<option value="1" >ft&#178</option>
+<option value="2" >mA</option>
+<option value="3" >A</option>
+<option value="4" >&#937</option>
+<option value="5" >V</option>
+<option value="6" >kV</option>
+<option value="7" >MV</option>
+<option value="8" >VA</option>
+<option value="9" >kVA</option>
+<option value="10" >MVA</option>
+<option value="11" >VA Reac</option>
+<option value="12" >KA Reac</option>
+<option value="13" >MVA Reac</option>
+<option value="14" >cos&#966</option>
+<option value="16" >J</option>
+<option value="17" >kJ</option>
+<option value="18" >Wh</option>
+<option value="19" >kWh</option>
+<option value="20" >BTU</option>
+<option value="21" >Terms</option>
+<option value="22" >ton h</option>
+<option value="23" >J/kg dry air</option>
+<option value="24" >BTU/p dry air</option>
+<option value="25" >1/h</option>
+<option value="26" >1/min</option>
+<option value="27" >Hz</option>
+<option value="28" >g H<sub>2</sub>O/kg</option>
+<option value="29" >%</option>
+<option value="30" >mm</option>
+<option value="31" >m</option>
+<option value="32" >in</option>
+<option value="33" >ft</option>
+<option value="34" >W/ft&#178</option>
+<option value="35" >W/m&#178</option>
+<option value="36" >lm</option>
+<option value="38" >Foot Candels</option>
+<option value="39" >kg</option>
+<option value="40" >lbs</option>
+<option value="41" >t</option>
+<option value="42" >kg/s</option>
+<option value="43" >kg/min</option>
+<option value="44" >kg/h</option>
+<option value="45" >lbs/min</option>
+<option value="46" >lbs/h</option>
+<option value="47" >W</option>
+<option value="48" >kW</option>
+<option value="49" >MW</option>
+<option value="50" >BTU/h</option>
+<option value="51" >HP</option>
+<option value="52" >t</option>
+<option value="53" >Pa</option>
+<option value="54" >kPa</option>
+<option value="55" >bar</option>
+<option value="56" >lbs/in&#178</option>
+<option value="57" >mm H<sub>2</sub>O</option>
+<option value="58" >in H<sub>2</sub>O</option>
+<option value="59" >mm Hg</option>
+<option value="60" >cm Hg</option>
+<option value="61" >in Hg</option>
+<option value="62" >&#176C</option>
+<option value="63" >K</option>
+<option value="64" >&#176F</option>
+<option value="65" >DDC</option>
+<option value="66" >DDF</option>
+<option value="67" >Y</option>
+<option value="68" >M</option>
+<option value="69" >W</option>
+<option value="70" >d</option>
+<option value="71" >h</option>
+<option value="72" >min</option>
+<option value="73" >s</option>
+<option value="74" >m/s</option>
+<option value="75" >km/h</option>
+<option value="76" >ft/s</option>
+<option value="77" >ft/min</option>
+<option value="78" >mph</option>
+<option value="79" >ft&#179</option>
+<option value="80" >m&#179</option>
+<option value="81" >Imp gal</option>
+<option value="82" >l</option>
+<option value="83" >US gal</option>
+<option value="84" >ft&#179/min</option>
+<option value="85" >m&#179/s</option>
+<option value="86" >Imp. gal/min</option>
+<option value="87" >l/s</option>
+<option value="88" >l/min</option>
+<option value="89" >US gal/min</option>
+<option value="90" >&#176&#8736</option>
+<option value="91" >&#176C/h</option>
+<option value="92" >&#176C/min</option>
+<option value="93" >&#176F/h</option>
+<option value="94" >&#176F/min</option>
+<option value="95" ></option>
+<option value="96" >ppm</option>
+<option value="97" >ppb</option>
+<option value="98" >%</option>
+<option value="99" >%/s</option>
+<option value="100" >1/min</option>
+<option value="101" >1/s</option>
+<option value="102" >psi/&#176F</option>
+<option value="103" >rad</option>
+<option value="104" >1/min</option>
+<option value="115" >in&#178</option>
+<option value="116" >cm&#178</option>
+<option value="117" >BTU/lbs</option>
+<option value="118" >cm</option>
+<option value="119" >lbs/s</option>
+<option value="120" >&#916&#176F</option>
+<option value="121" >&#916&#176K</option>
+<option value="122" >k&#937</option>
+<option value="123" >M&#937</option>
+<option value="124" >mV</option>
+<option value="125" >kJ/kg</option>
+<option value="126" >MJ</option>
+<option value="127" >J/K</option>
+<option value="128" >J/kgK</option>
+<option value="129" >kHz</option>
+<option value="130" >MHz</option>
+<option value="131" >1/h</option>
+<option value="132" >mW</option>
+<option value="133" >hPa</option>
+<option value="134" >mbar</option>
+<option value="135" >m&#179/h</option>
+<option value="136" >l/h</option>
+<option value="137" >kWh/m&#178</option>
+<option value="138" >kWh/ft&#178</option>
+<option value="139" >MJ/m&#178</option>
+<option value="140" >MJ/ft&#178</option>
+<option value="141" >W/(m&#178 &#176K)</option>
+<option value="142" >ft&#179/s</option>
+<option value="143" >%obs/ft</option>
+<option value="144" >%obs/m</option>
+<option value="145" >m&#937</option>
+<option value="146" >MWh</option>
+<option value="147" >kBTU</option>
+<option value="148" >MBTU</option>
+<option value="149" >kJ/kg(dry air)</option>
+<option value="150" >MJ/kg(dry air)</option>
+<option value="151" >kJ/K</option>
+<option value="152" >MJ/K</option>
+<option value="153" >N</option>
+<option value="154" >g/s</option>
+<option value="155" >g/min</option>
+<option value="156" >t/h</option>
+<option value="157" >kBTUs/h</option>
+<option value="158" >1/100s</option>
+<option value="159" >ms</option>
+<option value="160" >Nm</option>
+<option value="161" >mm/s</option>
+<option value="162" >mm/min</option>
+<option value="163" >m/min</option>
+<option value="164" >m/h</option>
+<option value="165" >m&#179/min</option>
+<option value="166" >m/s&#178</option>
+<option value="167" >A/m</option>
+<option value="168" >A/m&#178</option>
+<option value="169" >Am&#178</option>
+<option value="170" >F</option>
+<option value="171" >H</option>
+<option value="172" >&#937m</option>
+<option value="173" >S</option>
+<option value="174" >S/m</option>
+<option value="175" >T</option>
+<option value="176" >V/K</option>
+<option value="177" >V/m</option>
+<option value="178" >Wb</option>
+<option value="179" >Cd</option>
+<option value="180" >Cd/m&#178</option>
+<option value="181" >K/h</option>
+<option value="182" >K/min</option>
+<option value="183" >Js</option>
+<option value="184" >rad/s</option>
+<option value="185" >m&#178/N</option>
+<option value="186" >kg/m&#179</option>
+<option value="187" >Ns</option>
+<option value="188" >N/m</option>
+<option value="189" >W/m/K</option>
+<option value="190" >uS</option>
+<option value="191" >ft&#179/h</option>
+<option value="192" >US gal/h</option>
+<option value="193" >km</option>
+<option value="194" >um</option>
+<option value="195" >g</option>
+<option value="196" >mg</option>
+<option value="197" >kl</option>
+<option value="198" >ms/s</option>
+<option value="199" >dB</option>
+<option value="200" >dBmV</option>
+<option value="201" >dBV</option>
+<option value="234" >pH</option>
+</select>
+</td>
+<td></td>
+</tr>
+</table>
+<div id="bhref1">
+<input class="button3" type="submit" value="确认" onclick="javascript:document.f2.submit();"/>
+</div>
+</form>
+<form action="{{V001}}" method="GET" name="f3">
+<input name="W" value="{{V002}}" type="hidden">
+<div id="bhref1">
+<input class="button3" type="submit" value="取消" onclick="javascript:document.f3.submit();"/>
+</div>
+</form>
+</td>
+</tr>
+</table>
+</div>
+<page_property id="my_page" autoreload="false" autoreloadtime=3 title="上海源控自动化技术有限公司"></page_property>

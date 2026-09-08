@@ -1,0 +1,199 @@
+<div id="layer">
+<table width="930" height="600" border="3" bordercolor="#888888" cellspacing="0">
+<tr class="tr1">
+<td rowspan="3" width="210"><image src="/public/yk.gif" align="right"></td>
+<td class="td2"></td>
+</tr>
+<tr class="tr1">
+<td class="td3">空调系统功能模块{{V001}}配置</td>
+</tr>
+<tr class="tr1">
+<td class="td2">&nbsp/<a href="pcfg.html">功能模块配置</a>/<form style="margin:0px;display:inline;" action="/ac.html" method="GET" name="f1"><input name="W" value="65" type="hidden"><a href="javascript:f1.submit();">空调系统功能模块</a></form></td>
+</tr>
+<tr class="tr2">
+<td class="td1" valign="top">
+<div id="navigation">
+<ul>
+<li><a href="index.html">控制器配置</a></li>
+<li><a href="ddcpins.html">输入/输出口配置</a></li>
+<li><form action="/extend.html" method="GET" name="e3"><input name="W" value="34" type="hidden"><a href="javascript:e3.submit();">扩展模块</a></form></li>
+<li><a href="pcfg.html">功能模块配置</a></li>
+<li><a href="jump.html">硬件</a></li>
+<li><form action="/systime.html" method="GET" name="e2"><input name="W" value="8" type="hidden"><a href="javascript:e2.submit();">日期/时间</a></form></li>
+<li><form action="/backup.html" method="GET" name="e1"><input name="W" value="75" type="hidden"><a href="javascript:e1.submit();">配置数据备份</a></form></li>
+</ul>
+</div>
+</td>
+<td class="td2" align="left" valign="top"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<form action="/ac.html" method="GET"><input name="W" value="65" type="hidden"><input class="img1" type="image" src="/public/ret.gif"/></form>
+<table class="t1" cellspacing="0" height="{{V002}}">
+
+<tr>
+<td class="t1d1" rowspan="{{V003}}">1</td>
+<td class="t1d2" rowspan="{{V003}}">系统结构</td>
+<td class="t1d3"><form action="/actypel.html" method="GET" name="fh"><input name="W" value="4" type="hidden"/><input name="C" value="9711" type="hidden"/><input name="V" value="{{V065}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/>空调系统类型:&nbsp&nbsp&nbsp&nbsp<a href="javascript:fh.submit();">{{V117}}</a></form></td>
+</tr>
+<tr>
+<td class="t1d3"><form action="/acwaterl.html" method="GET" name="f2"><input name="W" value="4" type="hidden"/><input name="C" value="9712" type="hidden"/><input name="V" value="{{V066}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/>水系统类型:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="javascript:f2.submit();">{{V118}}</a></form></td>
+</tr>
+<tr>
+<td class="t1d3"><form action="/enl.html" method="GET" name="f3"><input name="W" value="4" type="hidden"/><input name="C" value="9714" type="hidden"/><input name="V" value="{{V068}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/>加湿控制:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="javascript:f3.submit();">{{V120}}</a></form></td>
+</tr>
+<tr>
+<td class="t1d3"><form action="/enl.html" method="GET" name="f4"><input name="W" value="4" type="hidden"/><input name="C" value="9717" type="hidden"/><input name="V" value="{{V071}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/>风机变频控制:&nbsp&nbsp&nbsp&nbsp<a href="javascript:f4.submit();">{{V123}}</a></form></td>
+</tr>
+<tr>
+<td class="t1d3"><form action="/enl.html" method="GET" name="fi"><input name="W" value="4" type="hidden"/><input name="C" value="9716" type="hidden"/><input name="V" value="{{V070}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/>热转轮控制:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="javascript:fi.submit();">{{V122}}</a></form></td>
+</tr>
+<tr>
+<td class="t1d3"><form action="/acfannuml.html" method="GET" name="f5"><input name="W" value="4" type="hidden"/><input name="C" value="9713" type="hidden"/><input name="V" value="{{V067}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/>风机数量:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="javascript:f5.submit();">{{V119}}</a></form></td>
+</tr>
+<tr>
+<td class="t1d3"><form action="/enl.html" method="GET" name="f6"><input name="W" value="4" type="hidden"/><input name="C" value="9715" type="hidden"/><input name="V" value="{{V069}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/>CO2监控:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="javascript:f6.submit();">{{V121}}</a></form></td>
+</tr>
+
+<tr class="t1r1">
+<td class="t1d1">2</td><td class="t1d2">系统模式</td>
+<td class="t1d3"><form action="/bal.html" method="GET" name="fx"><input name="W" value="4" type="hidden"/><input name="C" value="9760" type="hidden"/><input name="V" value="{{V109}}" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fx.submit();">{{V129}}</a></form></td>
+</tr>
+
+<tr>
+<td class="t1d1">3</td><td class="t1d2"><form action="/acin_1.html" method="GET" name="f7"><input name="W" value="68" type="hidden"/><input name="subW" value="1" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:f7.submit();">输入/输出变量配置</a></form></td><td class="t1d3"></td>
+</tr>
+
+<tr class="t1r1">
+<td class="t1d1">4</td><td class="t1d2"><form action="/actp.html" method="GET" name="fa"><input name="W" value="66" type="hidden"/><input name="subCW" value="1" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fa.submit();">温度控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+
+<tr>
+<td class="t1d1">5</td><td class="t1d2"><form action="/acfp.html" method="GET" name="fb"><input name="W" value="66" type="hidden"/><input name="subCW" value="7" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fb.submit();">风机控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+
+<tr class="t1r1">
+<td class="t1d1">6</td><td class="t1d2"><form action="/acavp.html" method="GET" name="fc"><input name="W" value="66" type="hidden"/><input name="subCW" value="2" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fc.submit();">风阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+
+{{&V004}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr>
+<td class="t1d1">9</td><td class="t1d2"><form action="/achp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr class="t1r1">
+<td class="t1d1">10</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="fg"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fg.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V005}}
+
+{{&V006}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr>
+<td class="t1d1">9</td><td class="t1d2"><form action="/achp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V007}}
+
+{{&V008}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr>
+<td class="t1d1">9</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V009}}
+
+{{&V010}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V011}}
+
+{{&V012}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achp.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr>
+<td class="t1d1">9</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V013}}
+
+{{&V014}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achp.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V015}}
+
+{{&V016}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V017}}
+
+{{&V018}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acwvp.html" method="GET" name="fd"><input name="W" value="66" type="hidden"/><input name="subCW" value="6" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fd.submit();">水阀控制参数配置</a></form></td><td class="t1d3"></td>
+</tr>
+{{&V019}}
+
+{{&V020}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr>
+<td class="t1d1">9</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="fg"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fg.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V021}}
+
+{{&V022}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/achp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V023}}
+
+{{&V024}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V025}}
+
+{{&V026}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/achotrunner.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="3" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">热转轮控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V027}}
+
+{{&V028}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/achp.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr class="t1r1">
+<td class="t1d1">8</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="ff"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:ff.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V029}}
+
+{{&V030}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/achp.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="4" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">加湿控制参数配置</a></form></td><td class="t1d3"></td></tr>
+<tr>
+{{&V031}}
+
+{{&V032}}
+<tr>
+<td class="t1d1">7</td><td class="t1d2"><form action="/acvfcp.html" method="GET" name="fe"><input name="W" value="66" type="hidden"/><input name="subCW" value="5" type="hidden"/><input name="RET" value="/accfg.html" type="hidden"/><input name="RETW" value="66" type="hidden"/><a href="javascript:fe.submit();">变频控制参数配置</a></form></td><td class="t1d3"></td></tr>
+{{&V033}}
+
+</table>
+</td>
+</tr>
+</table>
+</div>
+<page_property id="my_page" autoreload="false" autoreloadtime=3 title="上海源控自动化技术有限公司"></page_property>

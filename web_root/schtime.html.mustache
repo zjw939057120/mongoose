@@ -1,0 +1,76 @@
+<div id="layer">
+<table width="930" height="600" border="3" bordercolor="#888888" cellspacing="0">
+<tr class="tr1">
+<td rowspan="3" width="210"><image src="/public/yk.gif" align="right"></td>
+<td class="td2"></td>
+</tr>
+<tr class="tr1"><!--{{V001}}-->
+<td class="td3">周{{V018}}时间表配置</td>
+</tr>
+<tr class="tr1">
+<td class="td2">&nbsp/<a href="pcfg.html">功能模块配置</a>//<form style="margin:0px;display:inline;" action="/sch.html" method="GET" name="f1"><input name="W" value="46" type="hidden"><a href="javascript:f1.submit();">任务列表模块</a></form>/<form style="margin:0px;display:inline;" action="/schcfg.html" method="GET" name="f2"><input name="W" value="47" type="hidden"><input name="subW" value="1" type="hidden"><a href="javascript:f2.submit();">任务列表模块配置</a></form>/<form style="margin:0px;display:inline;" action="/schweekschedule.html" method="GET" name="f3"><input name="W" value="47" type="hidden"><input name="subW" value="2" type="hidden"><a href="javascript:f3.submit();">周计划表配置</a></form></td>
+</tr>
+<tr class="tr2">
+<td class="td1" valign="top">
+<div id="navigation">
+<ul>
+<li><a href="index.html">控制器配置</a></li>
+<li><a href="ddcpins.html">输入/输出口配置</a></li>
+<li><form action="/extend.html" method="GET" name="e3"><input name="W" value="34" type="hidden"><a href="javascript:e3.submit();">扩展模块</a></form></li>
+<li><a href="pcfg.html">功能模块配置</a></li>
+<li><a href="jump.html">硬件</a></li>
+<li><form action="/systime.html" method="GET" name="e2"><input name="W" value="8" type="hidden"><a href="javascript:e2.submit();">日期/时间</a></form></li>
+<li><form action="/backup.html" method="GET" name="e1"><input name="W" value="75" type="hidden"><a href="javascript:e1.submit();">配置数据备份</a></form></li>
+</ul>
+</div>
+</td>
+<td class="td2" align="left" valign="top"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<form action="/schweekschedule.html" method="GET"><input name="W" value="47" type="hidden"><input name="subW" value="2" type="hidden"><input class="img1" type="image" src="/public/ret.gif"/></form>
+<table class="t1" cellspacing="0" height="400">
+
+<tr><td class="t1d1" rowspan="2">1</td><td class="t1d2" rowspan="2">时间点1：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="f4"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="1" type="hidden"/>时间：<a href="javascript:f4.submit();">{{V027}}</a></form></td></tr>
+
+<tr><td class="t1d3"><form action="/schaction.html" method="GET" name="f5"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="1" type="hidden"/><input name="V" value="{{V019}}" type="hidden"/>动作：<a href="javascript:f5.submit();">{{V035}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d1" rowspan="2">2</td><td class="t1d2" rowspan="2">时间点2：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="f6"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="2" type="hidden"/>时间：<a href="javascript:f6.submit();">{{V028}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d3"><form action="/schaction.html" method="GET" name="f7"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="2" type="hidden"/><input name="V" value="{{V020}}" type="hidden"/>动作：<a href="javascript:f7.submit();">{{V036}}</a></form></td></tr>
+
+<tr><td class="t1d1" rowspan="2">3</td><td class="t1d2" rowspan="2">时间点3：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="f8"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="3" type="hidden"/>时间：<a href="javascript:f8.submit();">{{V029}}</a></form></td></tr>
+
+<tr><td class="t1d3"><form action="/schaction.html" method="GET" name="f9"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="3" type="hidden"/><input name="V" value="{{V021}}" type="hidden"/>动作：<a href="javascript:f9.submit();">{{V037}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d1" rowspan="2">4</td><td class="t1d2" rowspan="2">时间点4：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="fa"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="4" type="hidden"/>时间：<a href="javascript:fa.submit();">{{V030}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d3"><form action="/schaction.html" method="GET" name="fb"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="4" type="hidden"/><input name="V" value="{{V022}}" type="hidden"/>动作：<a href="javascript:fb.submit();">{{V038}}</a></form></td></tr>
+
+<tr><td class="t1d1" rowspan="2">5</td><td class="t1d2" rowspan="2">时间点5：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="fc"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="5" type="hidden"/>时间：<a href="javascript:fc.submit();">{{V031}}</a></form></td></tr>
+
+<tr><td class="t1d3"><form action="/schaction.html" method="GET" name="fd"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="5" type="hidden"/><input name="V" value="{{V023}}" type="hidden"/>动作：<a href="javascript:fd.submit();">{{V039}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d1" rowspan="2">6</td><td class="t1d2" rowspan="2">时间点6：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="fe"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="6" type="hidden"/>时间：<a href="javascript:fe.submit();">{{V032}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d3"><form action="/schaction.html" method="GET" name="ff"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="6" type="hidden"/><input name="V" value="{{V024}}" type="hidden"/>动作：<a href="javascript:ff.submit();">{{V040}}</a></form></td></tr>
+
+<tr><td class="t1d1" rowspan="2">7</td><td class="t1d2" rowspan="2">时间点7：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="fg"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="7" type="hidden"/>时间：<a href="javascript:fg.submit();">{{V033}}</a></form></td></tr>
+
+<tr><td class="t1d3"><form action="/schaction.html" method="GET" name="fh"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="7" type="hidden"/><input name="V" value="{{V025}}" type="hidden"/>动作：<a href="javascript:fh.submit();">{{V041}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d1" rowspan="2">8</td><td class="t1d2" rowspan="2">时间点8：</td>
+<td class="t1d3"><form action="/schtimevalue.html" method="GET" name="fi"><input name="W" value="42" type="hidden"/><input name="subW" value="2" type="hidden"><input name="TP" value="8" type="hidden"/>时间：<a href="javascript:fi.submit();">{{V034}}</a></form></td></tr>
+
+<tr class="t1r1"><td class="t1d3"><form action="/schaction.html" method="GET" name="fj"><input name="W" value="42" type="hidden"/><input name="subW" value="3" type="hidden"><input name="A" value="8" type="hidden"/><input name="V" value="{{V026}}" type="hidden"/>动作：<a href="javascript:fj.submit();">{{V042}}</a></form></td></tr>
+
+</table>
+</td>
+</tr>
+</table>
+</div>
+<page_property id="my_page" autoreload="false" autoreloadtime=3 title="上海源控自动化技术有限公司"></page_property>
