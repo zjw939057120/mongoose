@@ -9,6 +9,7 @@
 // Data and results are JSON strings
 
 #include "mongoose.h"
+#include "middleware.h"
 
 static const char *s_http_addr = "http://0.0.0.0:80";  // HTTP port
 static const char *s_root_dir = "web_root";
@@ -49,7 +50,7 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
       mg_http_reply(c, 200, "", "ok\n");
     } else {
       struct mg_http_serve_opts opts = {.root_dir = s_root_dir};
-      mg_http_serve_dir(c, ev_data, &opts);
+      mg_http_serve_dir_ext(c, hm, &opts);
     }
   }
 }

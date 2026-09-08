@@ -2,6 +2,7 @@ PROG ?= web_server                   # Program we are building
 DELETE = rm -rf                   # Command to remove files
 OUT ?= -o $(PROG)                 # Compiler argument for output file
 SOURCES = main.c mongoose.c       # Source code files
+SOURCES += middleware.c           # Middleware source code
 CFLAGS = -W -Wall -Wextra -g -I.  # Build options
 
 # Mongoose build options. See https://mongoose.ws/documentation/#build-options
