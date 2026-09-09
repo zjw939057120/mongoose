@@ -1,6 +1,7 @@
 #include "mg_model.h"
 
 cJSON *model_root = NULL;
+cJSON *model_global = NULL;
 cJSON *model_index = NULL;
 cJSON *model_system = NULL;
 cJSON *model_ethdisplay = NULL;
@@ -18,6 +19,11 @@ cJSON *model_doins = NULL;
 void model_init(void) {
     // 初始化数据模型根节点
     model_root = cJSON_CreateObject();
+    //插入MODEL_GLOBAL节点
+    model_global = cJSON_CreateObject();
+    cJSON_AddStringToObject(model_global, "user", "admin");
+    cJSON_AddStringToObject(model_global, "pwd", "5678");
+    cJSON_AddItemToObject(model_root, MODEL_GLOBAL, model_global);
     //插入MODEL_INDEX节点
     model_index = cJSON_CreateObject();
     cJSON_AddStringToObject(model_index, "appversion",__DATE__);
@@ -42,6 +48,14 @@ void model_init(void) {
 
 cJSON * get_model_root(void) {
     return model_root;
+}
+/**
+ * @brief 获取数据模型全局节点
+ * 
+ * @return cJSON* 模型全局节点
+ */
+cJSON * get_model_global(void) {
+    return model_global;
 }
 cJSON * get_model_index(void) {
     return model_index;

@@ -17,6 +17,14 @@ extern "C" {
 #define HTML_CONTENT_TYPE "Content-Type: text/html;charset=utf-8\r\n"
 
 /**
+ * @brief 检查是否需要登录
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ * @return true 如果需要登录，否则返回false
+ */
+bool has_access_token(struct mg_connection *c, struct mg_http_message *hm);
+/**
  * @brief 响应404错误
  * 
  * @param c 连接指针
@@ -45,7 +53,7 @@ void response_html(struct mg_connection *c, char *html_str);
  * @param hm HTTP消息指针
  * @param opts 选项指针
  */
-void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts);
+void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, struct mg_http_serve_opts *opts);
 
 /**
  * @brief 处理根URL请求
@@ -54,7 +62,7 @@ void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, con
  * @param hm HTTP消息指针
  * @param opts 选项指针
  */
-void get_root_url_process(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts);
+void get_home_handle(struct mg_connection *c, struct mg_http_message *hm);
 
 /**
  * @brief 处理模型根请求
@@ -63,7 +71,8 @@ void get_root_url_process(struct mg_connection *c, struct mg_http_message *hm, c
  * @param hm HTTP消息指针
  * @param opts 选项指针
  */
-void get_model_root_process(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts);
+void api_get_model_handle(struct mg_connection *c, struct mg_http_message *hm);
+
 #ifdef __cplusplus
 }
 #endif

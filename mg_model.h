@@ -15,6 +15,7 @@ extern "C" {
 
 // 模型模板名称
 #define MODEL_ROOT "root"
+#define MODEL_GLOBAL "global"
 #define MODEL_INDEX "index"
 #define MODEL_SYSTEM "system"
 #define MODEL_ETHDISPLAY "ethdisplay"
@@ -42,6 +43,12 @@ void model_deinit(void);
  * @return cJSON* 模型根节点
  */
 cJSON * get_model_root(void);
+/**
+ * @brief 获取数据模型全局节点
+ * 
+ * @return cJSON* 模型全局节点
+ */
+cJSON * get_model_global(void);
 /**
  * @brief 获取数据模型索引节点
  * 

@@ -26,8 +26,19 @@ static void update_config(struct mg_str json, const char *path, char **value) {
   }
 }
 
+/**
+ * @brief HTTP服务选项
+ * 
+ */
 struct mg_http_serve_opts opts;
 
+/**
+ * @brief 处理HTTP事件
+ * 
+ * @param c 连接指针
+ * @param ev 事件类型
+ * @param ev_data 事件数据指针
+ */
 static void fn(struct mg_connection *c, int ev, void *ev_data) {
   if (ev == MG_EV_OPEN && c->is_listening) {
     // 连接打开时，设置根目录为 s_root_dir
@@ -35,7 +46,7 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
   } else if (ev == MG_EV_HTTP_MSG) {
     struct mg_http_message *hm = (struct mg_http_message *) ev_data;
     // 处理路由
-    if (!router_handle(c, hm, &opts)) {
+    if (!router_handle(c, hm)) {
       // 未匹配到路由，处理静态文件
       static_file_handle(c, hm, &opts);
     }

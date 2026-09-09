@@ -2,6 +2,30 @@
 #include "mg_model.h"
 #include "mg_view.h"
 
+ bool has_access_token(struct mg_connection *c, struct mg_http_message *hm) {
+// 1. 获取完整的 Cookie 报头
+struct mg_str *cookie_hdr = mg_http_get_header(hm, "Cookie");
+
+char var_access_token[64] = {0};
+
+if (cookie_hdr != NULL) {
+    // 2. 从 Cookie 报头中提取 access_token 的值
+    struct mg_str token = mg_http_get_header_var(*cookie_hdr, mg_str("access_token"));
+    
+    // 判断是否成功提取到值（mg_str 的 len > 0 表示有值）
+    if (token.len > 0) {
+        // 将 mg_str 安全地拷贝到你的缓冲区中
+        snprintf(var_access_token, sizeof(var_access_token), "%.*s", (int)token.len, token.buf);
+        return true;
+    } else {
+        return false;
+    }
+} else {
+    return false;
+}
+    return strcmp(var_access_token, "") == 0;
+ }
+
 /**
  * @brief 响应404错误
  * 
@@ -38,7 +62,7 @@ void response_html(struct mg_connection *c, char *html_str) {
  * @param hm HTTP 消息上下文
  * @param opts HTTP 服务选项
  */
-void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts) {
+void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, struct mg_http_serve_opts *opts) {
      // 解码 URL 路径
     char path[MG_PATH_MAX];
     mg_url_decode(hm->uri.buf, hm->uri.len, path, sizeof(path), 0);
@@ -47,6 +71,11 @@ void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, con
     size_t suffix_len = strlen(html_suffix);
     size_t path_len = strlen(path);
     if (path_len >= suffix_len && memcmp(path + path_len - suffix_len, html_suffix, suffix_len) == 0) {
+        if(!has_access_token(c, hm) && strcmp(path, "/login.html") != 0) {
+            // 302 重定向到登录页
+            mg_http_reply(c, 302, "Location: /login.html\r\n", "");
+            return;
+        }
       mg_http_serve_file(c, hm, "web_root/page.html", opts);
       return;
     }
@@ -54,7 +83,7 @@ void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, con
     const char *mustache_suffix = ".html.mustache";
     suffix_len = strlen(mustache_suffix);
     path_len = strlen(path);
-    if (path_len >= suffix_len && memcmp(path + path_len - suffix_len, mustache_suffix, suffix_len) == 0) {    
+    if (path_len >= suffix_len && memcmp(path + path_len - suffix_len, mustache_suffix, suffix_len) == 0) {
       char temp[MG_PATH_MAX];
       mg_snprintf(temp, sizeof(temp), "%s/%s", opts->root_dir, path);
       // 读取 Mustache 模板文件
@@ -96,15 +125,16 @@ void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, con
     mg_http_serve_dir(c, hm, opts);
 }
 
-void get_root_url_process(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts) {
+void get_home_handle(struct mg_connection *c, struct mg_http_message *hm) {
     // 重定向到首页
     mg_http_reply(c, 302, "Location: /index.html\r\n", "");
     return;
 }
 
-void get_model_root_process(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts) {
+void api_get_model_handle(struct mg_connection *c, struct mg_http_message *hm) {
     char *json_str = cJSON_Print(get_model_root());
     response_json(c, json_str);    
     // 使用完毕后释放内存
     cJSON_free(json_str); 
 }
+

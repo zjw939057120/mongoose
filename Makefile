@@ -2,9 +2,9 @@ PROG ?= web_server                   # Program we are building
 DELETE = rm -rf                   # Command to remove files
 OUT ?= -o $(PROG)                 # Compiler argument for output file
 SOURCES = main.c mongoose.c       # Source code files
-SOURCES += cJSON.c cJSON_Utils.c  # cJSON source code
-SOURCES += mg_middleware.c mg_router.c         # Middleware and Router source code
-SOURCES += mg_model.c mg_view.c mg_controller.c             # Model, View, and Controller source code 
+SOURCES += cJSON.c cJSON_Utils.c
+SOURCES += mg_middleware.c mg_router.c mg_authentication.c
+SOURCES += mg_model.c mg_view.c mg_controller.c
 CFLAGS = -W -Wall -Wextra -g -I.  # Build options
 
 # Mongoose build options. See https://mongoose.ws/documentation/#build-options

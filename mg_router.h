@@ -13,8 +13,7 @@
 extern "C" {
 #endif
 
-bool router_handle(struct mg_connection *c, struct mg_http_message *hm,
-                         const struct mg_http_serve_opts *opts);
+bool router_handle(struct mg_connection *c, struct mg_http_message *hm);
                        
 #ifdef __cplusplus
 }
