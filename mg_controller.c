@@ -2,24 +2,46 @@
 #include "mg_model.h"
 #include "mg_view.h"
 
+/**
+ * @brief 响应404错误
+ * 
+ * @param c 连接指针
+ */
+void response_not_found(struct mg_connection *c) {
+    mg_http_reply(c, 404, JSON_CONTENT_TYPE, "404 Not Found");
+}
 
 /**
- * @brief 处理 HTTP 请求
+ * @brief 响应JSON数据
+ * 
+ * @param c 连接指针
+ * @param json_str JSON字符串指针
+ */
+void response_json(struct mg_connection *c, char *json_str) {
+    mg_http_reply(c, 200, JSON_CONTENT_TYPE, json_str);    
+}
+
+/**
+ * @brief 响应HTML数据
+ * 
+ * @param c 连接指针
+ * @param html_str HTML字符串指针
+ */
+void response_html(struct mg_connection *c, char *html_str) {
+    mg_http_reply(c, 200, HTML_CONTENT_TYPE, html_str);    
+}
+
+/**
+ * @brief 处理静态文件请求
  * 
  * @param c 连接上下文
  * @param hm HTTP 消息上下文
  * @param opts HTTP 服务选项
  */
-void mg_http_message_handle(struct mg_connection *c, struct mg_http_message *hm,
-                       const struct mg_http_serve_opts *opts) {
+void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts) {
      // 解码 URL 路径
     char path[MG_PATH_MAX];
     mg_url_decode(hm->uri.buf, hm->uri.len, path, sizeof(path), 0);
-    // 处理根路径
-    if(mg_casecmp(path, "/") == 0) {
-        mg_http_reply(c, 302, "Location: /index.html\r\n", "");
-        return;
-    }
     // 处理 HTML 文件
     const char *html_suffix = ".html";
     size_t suffix_len = strlen(html_suffix);
@@ -52,13 +74,13 @@ void mg_http_message_handle(struct mg_connection *c, struct mg_http_message *hm,
             node_name++;
         }
         // 从模型根节点中获取对应节点
-        cJSON *item = cJSON_GetObjectItem(get_model_root(), node_name);
+        cJSON *node = cJSON_GetObjectItem(get_model_root(), node_name);
         // 执行 Mustache 渲染
-        char *rendered_html = render_mustache(item, content.buf);
+        char *rendered_html = render_mustache(node, content.buf);
         
         if (rendered_html != NULL) {
             // 将渲染后的 HTML 输出到页面
-            mg_http_reply(c, 200, "Content-Type: text/html\r\n", "%s", rendered_html);
+            mg_http_reply(c, 200, HTML_CONTENT_TYPE, "%s", rendered_html);
             free(rendered_html); // 必须释放渲染分配的内存
         } else {
             mg_http_reply(c, 500, "", "Template rendering failed\n");
@@ -74,3 +96,15 @@ void mg_http_message_handle(struct mg_connection *c, struct mg_http_message *hm,
     mg_http_serve_dir(c, hm, opts);
 }
 
+void get_root_url_process(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts) {
+    // 重定向到首页
+    mg_http_reply(c, 302, "Location: /index.html\r\n", "");
+    return;
+}
+
+void get_model_root_process(struct mg_connection *c, struct mg_http_message *hm, const struct mg_http_serve_opts *opts) {
+    char *json_str = cJSON_Print(get_model_root());
+    response_json(c, json_str);    
+    // 使用完毕后释放内存
+    cJSON_free(json_str); 
+}

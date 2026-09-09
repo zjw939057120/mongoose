@@ -4,15 +4,15 @@
 /**
  * @brief 获取 Mustache 模板中的变量值
  * 
- * @param item 模板项
+ * @param node 模板节点
  * @param var_name 变量名
  * @return const char* 变量值或默认值
  */
-const char* get_variable_value(cJSON *item, const char *var_name) {
-    cJSON *var_item = cJSON_GetObjectItem(item, var_name);
+const char* get_variable_value(cJSON *node, const char *var_name) {
+    cJSON *sub_node = cJSON_GetObjectItem(node, var_name);
     // 安全检查：判断节点是否存在且类型为字符串
-    if (cJSON_IsString(var_item) && (var_item->valuestring != NULL)) {
-        return var_item->valuestring;
+    if (cJSON_IsString(sub_node) && (sub_node->valuestring != NULL)) {
+        return sub_node->valuestring;
     } else {
         return "[Unknown Variable]";
     }
@@ -21,11 +21,11 @@ const char* get_variable_value(cJSON *item, const char *var_name) {
 /**
  * @brief 渲染 Mustache 模板
  * 
- * @param path 模板路径
+ * @param node 模板节点
  * @param html_content Mustache 模板内容
  * @return char* 渲染后的 HTML 内容
  */
-char *render_mustache(cJSON *item, const char *html_content) {
+char *render_mustache(cJSON *node, const char *html_content) {
     regex_t regex;
     regmatch_t pmatch[2]; // 0: 匹配整个 {{var}}, 1: 匹配括号内的 var
     const char *pattern = "\\{\\{([a-zA-Z0-9_]+)\\}\\}"; // 正则匹配 {{变量名}}
@@ -56,7 +56,7 @@ char *render_mustache(cJSON *item, const char *html_content) {
         strncpy(var_name, cursor + pmatch[1].rm_so, var_len);
 
         // 3. 获取真实变量值并追加到结果中
-        const char *value = get_variable_value(item, var_name);
+        const char *value = get_variable_value(node, var_name);
         size_t val_len = strlen(value);
         if (result_len + val_len >= buffer_size) break;
         memcpy(result + result_len, value, val_len);
