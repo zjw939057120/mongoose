@@ -9,7 +9,10 @@
 // Data and results are JSON strings
 
 #include "mongoose.h"
-#include "middleware.h"
+#include "mg_middleware.h"
+#include "mg_model.h"
+#include "mg_controller.h"
+#include "mg_view.h"
 
 static const char *s_http_addr = "http://0.0.0.0:80";  // HTTP port
 static const char *s_root_dir = "web_root";
@@ -56,8 +59,7 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
 }
 
 int main(void) {
-  // 初始化中间件
-  middleware_init();
+  model_init(); // 初始化模型
   struct mg_mgr mgr;                            // Event manager
   mg_log_set(MG_LL_INFO);                       // Set to 3 to enable debug
   mg_mgr_init(&mgr);                            // Initialise event manager
@@ -67,7 +69,6 @@ int main(void) {
   mg_free(s_config.url);
   mg_free(s_config.pub);
   mg_free(s_config.sub);
-  // 释放中间件资源
-  middleware_deinit();
+  model_deinit(); // 释放模型资源
   return 0;
 }

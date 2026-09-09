@@ -1,5 +1,5 @@
-#ifndef MIDDLEWARE_H
-#define MIDDLEWARE_H
+#ifndef MG_VIEW_H
+#define MG_VIEW_H
 
 #include <regex.h>
 #include <stdlib.h>
@@ -13,15 +13,6 @@
 extern "C" {
 #endif
 
-/**
- * @brief 处理HTTP消息
- * 
- * @param c 连接指针
- * @param hm HTTP消息指针
- * @param opts 选项指针
- */
-void mg_http_message_handle(struct mg_connection *c, struct mg_http_message *hm,
-                       const struct mg_http_serve_opts *opts);
 /**
  * @brief 获取 Mustache 模板中的变量值
  * 
@@ -39,17 +30,6 @@ const char* get_variable_value(cJSON *item, const char *var_name);
  * @return char* 渲染后的 HTML 内容
  */
 char *render_mustache(cJSON *item, const char *html_content);
-
-/**
- * @brief 初始化中间件
- * 
- */
-void middleware_init(void);
-/**
- * @brief 释放中间件资源
- * 
- */
-void middleware_deinit(void);
 
 #ifdef __cplusplus
 }
