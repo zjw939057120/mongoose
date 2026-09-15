@@ -33,14 +33,21 @@ const char* get_variable_value(cJSON *node, const char *var_name);
 char *render_mustache(cJSON *node, const char *html_content);
 
 /**
- * @brief 渲染模板
+ * @brief 渲染节点（根据路径）
  * 
  * @param c 连接指针
  * @param node 模板节点
+ * @param template_name 模板名称
+ */
+void render_node_by_name(struct mg_connection *c, cJSON *node, const char *template_name);
+
+/**
+ * @brief 渲染节点（根据节点名称）
+ * 
+ * @param c 连接指针
  * @param node_name 节点名称
  */
-void render_template(struct mg_connection *c, cJSON *node, const char *node_name);
-
+void render_node(struct mg_connection *c, const char *node_name);
 #ifdef __cplusplus
 }
 #endif

@@ -96,9 +96,7 @@ void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, str
         if (node_name[0] == '/') {
             node_name++;
         }
-        // 从模型根节点中获取对应节点
-        cJSON *node = cJSON_GetObjectItem(get_model_root(), node_name);
-        render_template(c, node, node_name);
+        render_node(c, node_name);
         return;
     }
     // 处理其他文件

@@ -81,15 +81,15 @@ char *render_mustache(cJSON *node, const char *html_content) {
 }
 
 /**
- * @brief 渲染模板
+ * @brief 渲染节点（根据模板名称）
  * 
  * @param c 连接指针
  * @param node 模板节点
- * @param node_name 节点名称
+ * @param template_name 模板名称
  */
-void render_template(struct mg_connection *c, cJSON *node, const char *node_name) {
+void render_node_by_name(struct mg_connection *c, cJSON *node, const char *template_name) {
       char temp[MG_PATH_MAX];
-      mg_snprintf(temp, sizeof(temp), "%s/%s%s", ROOT_DIR, node_name, MUSTACHE_SUFFIX);
+      mg_snprintf(temp, sizeof(temp), "%s/%s%s", ROOT_DIR, template_name, MUSTACHE_SUFFIX);
       printf("temp: %s\n", temp);
       // 读取 Mustache 模板文件
       struct mg_str content = mg_file_read(&mg_fs_posix, temp);
@@ -111,4 +111,17 @@ void render_template(struct mg_connection *c, cJSON *node, const char *node_name
         mg_http_reply(c, 404, "", "Template file not found\n");
     }
     return; // 处理完毕，直接返回
+}
+
+/**
+ * @brief 渲染节点（根据节点名称）
+ * 
+ * @param c 连接指针
+ * @param node_name 节点名称
+ */
+void render_node(struct mg_connection *c, const char *node_name) {
+    // 从模型根节点中获取对应节点
+    cJSON *node = cJSON_GetObjectItem(get_model_root(), node_name);
+    // 渲染节点
+    render_node_by_name(c, node, node_name);
 }
