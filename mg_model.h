@@ -20,11 +20,11 @@ extern "C" {
 #define MODEL_SYSTEM "system"
 #define MODEL_ETHDISPLAY "ethdisplay"
 #define MODEL_RS485 "rs485"
-#define MODEL_BACFG "baccfg"
+#define MODEL_BACCFG "baccfg"
 #define MODEL_DIPINS "dipins"
 #define MODEL_DOPINS "dopins"
 #define MODEL_UIPINS "uipins"
-#define MODEL_DOINS "doins"
+#define MODEL_UOPINS "uopins"
 
 /**
  * @brief 初始化数据模型根节点资源
@@ -92,9 +92,9 @@ cJSON * get_model_dopins(void);
  */
 cJSON * get_model_uipins(void);
 /**
- * @brief 获取数据模型DOINS节点
+ * @brief 获取数据模型UOPINS节点
  */
-cJSON * get_model_doins(void);
+cJSON * get_model_uopins(void);
 
 
 

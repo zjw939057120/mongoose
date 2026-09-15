@@ -13,6 +13,7 @@
 extern "C" {
 #endif
 
+
 /**
  * @brief 获取 Mustache 模板中的变量值
  * 
@@ -30,6 +31,15 @@ const char* get_variable_value(cJSON *node, const char *var_name);
  * @return char* 渲染后的 HTML 内容
  */
 char *render_mustache(cJSON *node, const char *html_content);
+
+/**
+ * @brief 渲染模板
+ * 
+ * @param c 连接指针
+ * @param node 模板节点
+ * @param node_name 节点名称
+ */
+void render_template(struct mg_connection *c, cJSON *node, const char *node_name);
 
 #ifdef __cplusplus
 }

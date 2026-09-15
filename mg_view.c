@@ -1,4 +1,5 @@
 #include "mg_view.h"
+#include "mg_common.h"
 #include "mg_model.h"
 
 /**
@@ -77,4 +78,37 @@ char *render_mustache(cJSON *node, const char *html_content) {
     regfree(&regex); // 释放正则表达式资源
     
     return result;
+}
+
+/**
+ * @brief 渲染模板
+ * 
+ * @param c 连接指针
+ * @param node 模板节点
+ * @param node_name 节点名称
+ */
+void render_template(struct mg_connection *c, cJSON *node, const char *node_name) {
+      char temp[MG_PATH_MAX];
+      mg_snprintf(temp, sizeof(temp), "%s/%s%s", ROOT_DIR, node_name, MUSTACHE_SUFFIX);
+      printf("temp: %s\n", temp);
+      // 读取 Mustache 模板文件
+      struct mg_str content = mg_file_read(&mg_fs_posix, temp);
+      
+      if (content.buf != NULL) {
+        // 执行 Mustache 渲染
+        char *rendered_html = render_mustache(node, content.buf);
+        
+        if (rendered_html != NULL) {
+            // 将渲染后的 HTML 输出到页面
+            mg_http_reply(c, 200, HTML_CONTENT_TYPE, "%s", rendered_html);
+            free(rendered_html); // 必须释放渲染分配的内存
+        } else {
+            mg_http_reply(c, 500, "", "Template rendering failed\n");
+        }
+        
+        mg_free((void *)content.buf); // 必须释放读取文件分配的内存
+    } else {
+        mg_http_reply(c, 404, "", "Template file not found\n");
+    }
+    return; // 处理完毕，直接返回
 }

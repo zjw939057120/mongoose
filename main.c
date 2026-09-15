@@ -9,13 +9,13 @@
 // Data and results are JSON strings
 
 #include "mongoose.h"
+#include <pthread.h>
+#include "mg_common.h"
 #include "mg_middleware.h"
 #include "mg_model.h"
 #include "mg_controller.h"
 #include "mg_view.h"
 
-static const char *s_http_addr = "http://0.0.0.0:80";  // HTTP port
-static const char *s_root_dir = "web_root";
 
 // Try to update a single configuration value
 static void update_config(struct mg_str json, const char *path, char **value) {
@@ -30,7 +30,7 @@ static void update_config(struct mg_str json, const char *path, char **value) {
  * @brief HTTP服务选项
  * 
  */
-struct mg_http_serve_opts opts;
+struct mg_http_serve_opts opts = {.root_dir = ROOT_DIR};
 
 /**
  * @brief 处理HTTP事件
@@ -41,8 +41,6 @@ struct mg_http_serve_opts opts;
  */
 static void fn(struct mg_connection *c, int ev, void *ev_data) {
   if (ev == MG_EV_OPEN && c->is_listening) {
-    // 连接打开时，设置根目录为 s_root_dir
-    opts.root_dir = s_root_dir;
   } else if (ev == MG_EV_HTTP_MSG) {
     struct mg_http_message *hm = (struct mg_http_message *) ev_data;
     // 处理路由
@@ -53,14 +51,26 @@ static void fn(struct mg_connection *c, int ev, void *ev_data) {
   }
 }
 
-int main(void) {
+void *web_server_thread_func(void *arg) {
   model_init(); // 初始化模型
   struct mg_mgr mgr;                            // Event manager
   mg_log_set(MG_LL_INFO);                       // Set to 3 to enable debug
   mg_mgr_init(&mgr);                            // Initialise event manager
-  mg_http_listen(&mgr, s_http_addr, fn, NULL);  // Create HTTP listener
+  mg_http_listen(&mgr, HTTP_ADDR, fn, NULL);  // Create HTTP listener
   for (;;) mg_mgr_poll(&mgr, 1000);             // Infinite event loop
   mg_mgr_free(&mgr);
   model_deinit(); // 释放模型资源
+}
+
+int main(void) {
+  pthread_t thread;
+  // 创建线程
+  pthread_create(&thread, NULL, web_server_thread_func, NULL);
+  // 等待线程结束
+  pthread_join(thread, NULL);
+  // 主线程继续执行
+  while (1) {
+    sleep(60);
+  }
   return 0;
 }

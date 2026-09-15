@@ -13,9 +13,6 @@
 extern "C" {
 #endif
 
-#define JSON_CONTENT_TYPE "Content-Type: application/json;charset=utf-8\r\n"
-#define HTML_CONTENT_TYPE "Content-Type: text/html;charset=utf-8\r\n"
-
 /**
  * @brief 检查是否需要登录
  * 
