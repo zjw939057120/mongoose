@@ -12,8 +12,13 @@ typedef struct {
 // 增加一个全 NULL 的结束标志，方便后续用 for 循环遍历
 static router_t router[] = {
     {"/", "GET", get_home_handle},// 根路径
+
     {"/sys/api/login", "POST", post_authentication_login_process},// 登录 POST 路径
     {"/sys/api/logout", "POST", post_authentication_logout_process},// 退出登录 POST 路径
+    
+    {"/index.html.mustache", "GET", get_index_mustache_handle},// 首页 Mustache 模板
+    {"/system.html.mustache", "GET", get_system_mustache_handle},// 系统页 Mustache 模板
+    
     {"/api/model", "GET", api_get_model_handle}, // 获取模型列表
     {NULL, NULL, NULL}  // 结束标志
 };

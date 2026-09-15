@@ -33,7 +33,7 @@ const char* get_variable_value(cJSON *node, const char *var_name);
 char *render_mustache(cJSON *node, const char *html_content);
 
 /**
- * @brief 渲染节点（根据路径）
+ * @brief 渲染节点（根据模板名称）
  * 
  * @param c 连接指针
  * @param node 模板节点

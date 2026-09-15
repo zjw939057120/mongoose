@@ -110,10 +110,6 @@ void get_home_handle(struct mg_connection *c, struct mg_http_message *hm) {
 }
 
 void api_get_model_handle(struct mg_connection *c, struct mg_http_message *hm) {
-    cJSON *index = get_model_index();
-    // 替换 appversion 字段为当前时间
-    cJSON_ReplaceItemInObject(index, "appversion", cJSON_CreateString(__DATE__" "__TIME__));
-
     cJSON *root = get_model_root();
     // 打印 JSON 字符串
     char *json_str = cJSON_Print(root);
@@ -122,3 +118,29 @@ void api_get_model_handle(struct mg_connection *c, struct mg_http_message *hm) {
     cJSON_free(json_str); 
 }
 
+/**
+ * @brief 处理首页 Mustache 模板请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ * @param opts 选项指针
+ */
+void get_index_mustache_handle(struct mg_connection *c, struct mg_http_message *hm) {
+    cJSON *index = get_model_index();
+    // 替换 appversion 字段为当前时间
+    cJSON_ReplaceItemInObject(index, "appversion", cJSON_CreateString(__DATE__" "__TIME__));
+    // 渲染 Mustache 模板
+    render_node(c, MODEL_INDEX);
+}
+
+/**
+ * @brief 处理系统页 Mustache 模板请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ * @param opts 选项指针
+ */
+void get_system_mustache_handle(struct mg_connection *c, struct mg_http_message *hm) {
+    // 渲染 Mustache 模板
+    render_node(c, MODEL_SYSTEM);
+}

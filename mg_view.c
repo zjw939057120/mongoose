@@ -90,7 +90,6 @@ char *render_mustache(cJSON *node, const char *html_content) {
 void render_node_by_name(struct mg_connection *c, cJSON *node, const char *template_name) {
       char temp[MG_PATH_MAX];
       mg_snprintf(temp, sizeof(temp), "%s/%s%s", ROOT_DIR, template_name, MUSTACHE_SUFFIX);
-      printf("temp: %s\n", temp);
       // 读取 Mustache 模板文件
       struct mg_str content = mg_file_read(&mg_fs_posix, temp);
       
