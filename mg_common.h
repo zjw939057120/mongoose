@@ -10,6 +10,8 @@ extern "C" {
 #define HTML_SUFFIX ".html"
 #define MUSTACHE_SUFFIX ".html.mustache"
 
+#define DEFAULT_HTML_PATH "web_root/page.html"
+
 #define JSON_CONTENT_TYPE "Content-Type: application/json;charset=utf-8\r\n"
 #define HTML_CONTENT_TYPE "Content-Type: text/html;charset=utf-8\r\n"
 

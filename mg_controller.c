@@ -5,6 +5,8 @@
 #include "mg_model.h"
 #include "mg_view.h"
 
+struct mg_http_serve_opts opts = {.root_dir = ROOT_DIR};
+
  bool has_access_token(struct mg_connection *c, struct mg_http_message *hm) {
 // 1. 获取完整的 Cookie 报头
 struct mg_str *cookie_hdr = mg_http_get_header(hm, "Cookie");
@@ -78,7 +80,7 @@ void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, str
             mg_http_reply(c, 302, "Location: /login.html\r\n", "");
             return;
         }
-      mg_http_serve_file(c, hm, "web_root/page.html", opts);
+      mg_http_serve_file(c, hm, DEFAULT_HTML_PATH, opts);
       return;
     }
     // 处理 Mustache 模板文件
@@ -119,18 +121,57 @@ void api_get_model_handle(struct mg_connection *c, struct mg_http_message *hm) {
 }
 
 /**
+ * @brief 处理首页 HTML 模板请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ */
+void get_index_html_handle(struct mg_connection *c, struct mg_http_message *hm) {
+    // 获取首页模型
+    cJSON *index = get_model_index();
+    // 替换 appversion 字段为当前时间
+    cJSON_ReplaceItemInObject(index, "appversion", cJSON_CreateString(__DATE__" "__TIME__));
+    // 从查询参数中获取 W、C、V、RET、RETW 字段值
+    // 示例：?W=7&C=103498&V=YK-BA6401MKTV1&RET=%2Fsystem.html&RETW=5
+    char param_value[64] = {0};
+    mg_http_get_var(&hm->query, "W", param_value, sizeof(param_value));
+    cJSON_ReplaceItemInObject(index, "W", cJSON_CreateString(param_value));
+    mg_http_get_var(&hm->query, "C", param_value, sizeof(param_value));
+    cJSON_ReplaceItemInObject(index, "C", cJSON_CreateString(param_value));
+    mg_http_get_var(&hm->query, "V", param_value, sizeof(param_value));
+    cJSON_ReplaceItemInObject(index, "V", cJSON_CreateString(param_value));
+    mg_http_get_var(&hm->query, "RET", param_value, sizeof(param_value));
+    cJSON_ReplaceItemInObject(index, "RET", cJSON_CreateString(param_value));
+    mg_http_get_var(&hm->query, "RETW", param_value, sizeof(param_value));
+    cJSON_ReplaceItemInObject(index, "RETW", cJSON_CreateString(param_value));
+    mg_http_serve_file(c, hm, DEFAULT_HTML_PATH, &opts);
+}
+
+/**
  * @brief 处理首页 Mustache 模板请求
  * 
  * @param c 连接指针
  * @param hm HTTP消息指针
- * @param opts 选项指针
  */
 void get_index_mustache_handle(struct mg_connection *c, struct mg_http_message *hm) {
+    // 获取首页模型
     cJSON *index = get_model_index();
-    // 替换 appversion 字段为当前时间
-    cJSON_ReplaceItemInObject(index, "appversion", cJSON_CreateString(__DATE__" "__TIME__));
     // 渲染 Mustache 模板
     render_node(c, MODEL_INDEX);
+}
+
+/**
+ * @brief 处理系统页 HTML 模板请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ */
+void get_system_html_handle(struct mg_connection *c, struct mg_http_message *hm) {
+    // 获取系统页模型
+    cJSON *system = get_model_system();
+    // 替换 V001 字段为当前时间
+    cJSON_ReplaceItemInObject(system, "V001", cJSON_CreateString(__DATE__" "__TIME__));
+    mg_http_serve_file(c, hm, DEFAULT_HTML_PATH, &opts);
 }
 
 /**
@@ -138,9 +179,10 @@ void get_index_mustache_handle(struct mg_connection *c, struct mg_http_message *
  * 
  * @param c 连接指针
  * @param hm HTTP消息指针
- * @param opts 选项指针
  */
 void get_system_mustache_handle(struct mg_connection *c, struct mg_http_message *hm) {
+    // 获取系统页模型
+    cJSON *system = get_model_system();
     // 渲染 Mustache 模板
     render_node(c, MODEL_SYSTEM);
 }

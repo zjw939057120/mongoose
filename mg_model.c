@@ -27,6 +27,11 @@ void model_init(void) {
     //插入MODEL_INDEX节点
     model_index = cJSON_CreateObject();
     cJSON_AddStringToObject(model_index, "appversion",__TIME__);
+    cJSON_AddStringToObject(model_index, "W",__TIME__);
+    cJSON_AddStringToObject(model_index, "C",__TIME__);
+    cJSON_AddStringToObject(model_index, "V",__TIME__);
+    cJSON_AddStringToObject(model_index, "RET",__TIME__);
+    cJSON_AddStringToObject(model_index, "RETW",__TIME__);
     cJSON_AddItemToObject(model_root, MODEL_INDEX, model_index);
     //插入MODEL_SYSTEM节点
     model_system = cJSON_CreateObject();

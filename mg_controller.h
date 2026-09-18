@@ -14,6 +14,12 @@ extern "C" {
 #endif
 
 /**
+ * @brief HTTP服务选项
+ * 
+ */
+extern struct mg_http_serve_opts opts;
+
+/**
  * @brief 检查是否需要登录
  * 
  * @param c 连接指针
@@ -48,7 +54,6 @@ void response_html(struct mg_connection *c, char *html_str);
  * 
  * @param c 连接指针
  * @param hm HTTP消息指针
- * @param opts 选项指针
  */
 void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, struct mg_http_serve_opts *opts);
 
@@ -57,7 +62,6 @@ void static_file_handle(struct mg_connection *c, struct mg_http_message *hm, str
  * 
  * @param c 连接指针
  * @param hm HTTP消息指针
- * @param opts 选项指针
  */
 void get_home_handle(struct mg_connection *c, struct mg_http_message *hm);
 
@@ -66,25 +70,37 @@ void get_home_handle(struct mg_connection *c, struct mg_http_message *hm);
  * 
  * @param c 连接指针
  * @param hm HTTP消息指针
- * @param opts 选项指针
  */
 void api_get_model_handle(struct mg_connection *c, struct mg_http_message *hm);
+
+/**
+ * @brief 处理首页 HTML 模板请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ */
+void get_index_html_handle(struct mg_connection *c, struct mg_http_message *hm);
 
 /**
  * @brief 处理首页 Mustache 模板请求
  * 
  * @param c 连接指针
  * @param hm HTTP消息指针
- * @param opts 选项指针
  */
 void get_index_mustache_handle(struct mg_connection *c, struct mg_http_message *hm);
 
+/**
+ * @brief 处理系统页 HTML 模板请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ */
+void get_system_html_handle(struct mg_connection *c, struct mg_http_message *hm);
 /**
  * @brief 处理系统页 Mustache 模板请求
  * 
  * @param c 连接指针
  * @param hm HTTP消息指针
- * @param opts 选项指针
  */
 void get_system_mustache_handle(struct mg_connection *c, struct mg_http_message *hm);
 

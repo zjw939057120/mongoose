@@ -11,26 +11,14 @@
 #include "mongoose.h"
 #include <pthread.h>
 #include "mg_common.h"
-#include "mg_middleware.h"
+#include "mg_router.h"
 #include "mg_model.h"
 #include "mg_controller.h"
-#include "mg_view.h"
-
-
-// Try to update a single configuration value
-static void update_config(struct mg_str json, const char *path, char **value) {
-  char *jval;
-  if ((jval = mg_json_get_str(json, path)) != NULL) {
-    mg_free(*value);
-    *value = jval;
-  }
-}
 
 /**
  * @brief HTTP服务选项
  * 
  */
-struct mg_http_serve_opts opts = {.root_dir = ROOT_DIR};
 
 /**
  * @brief 处理HTTP事件

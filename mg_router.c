@@ -15,8 +15,9 @@ static router_t router[] = {
 
     {"/sys/api/login", "POST", post_authentication_login_process},// 登录 POST 路径
     {"/sys/api/logout", "POST", post_authentication_logout_process},// 退出登录 POST 路径
-    
+    {"/index.html", "GET", get_index_html_handle},// 首页 HTML 页面
     {"/index.html.mustache", "GET", get_index_mustache_handle},// 首页 Mustache 模板
+    {"/system.html", "GET", get_system_html_handle},// 系统页 HTML 页面
     {"/system.html.mustache", "GET", get_system_mustache_handle},// 系统页 Mustache 模板
     
     {"/api/model", "GET", api_get_model_handle}, // 获取模型列表
