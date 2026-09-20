@@ -1,6 +1,11 @@
 #include "mg_router.h"
-#include "mg_controller.h"
 #include "mg_authentication.h"
+#include "mg_controller.h"
+#include "mg_api_controller.h"
+#include "mg_index_controller.h"
+#include "mg_system_controller.h"
+#include "mg_txt_controller.h"
+
 
 typedef struct {
     char *path; // 路径模式
@@ -13,14 +18,15 @@ typedef struct {
 static router_t router[] = {
     {"/", "GET", get_home_handle},// 根路径
 
-    {"/sys/api/login", "POST", post_authentication_login_process},// 登录 POST 路径
-    {"/sys/api/logout", "POST", post_authentication_logout_process},// 退出登录 POST 路径
+    {"/sys/api/login", "POST", post_authentication_login_handle},// 登录 POST 路径
+    {"/sys/api/logout", "POST", post_authentication_logout_handle},// 退出登录 POST 路径
     {"/index.html", "GET", get_index_html_handle},// 首页 HTML 页面
     {"/index.html.mustache", "GET", get_index_mustache_handle},// 首页 Mustache 模板
     {"/system.html", "GET", get_system_html_handle},// 系统页 HTML 页面
     {"/system.html.mustache", "GET", get_system_mustache_handle},// 系统页 Mustache 模板
-    
-    {"/api/model", "GET", api_get_model_handle}, // 获取模型列表
+    {"/txt.html", "GET", get_txt_html_handle},// 参数修改页 HTML 页面
+    {"/txt.html.mustache", "GET", get_txt_mustache_handle},// 参数修改页 Mustache 模板
+    {"/api/model", "GET", get_api_model_handle}, // 获取模型列表
     {NULL, NULL, NULL}  // 结束标志
 };
 

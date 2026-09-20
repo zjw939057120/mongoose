@@ -19,6 +19,7 @@ extern "C" {
 #define MODEL_DOPINS "dopins"
 #define MODEL_UIPINS "uipins"
 #define MODEL_UOPINS "uopins"
+#define MODEL_TXT "txt"
 
 /**
  * @brief 初始化数据模型根节点资源
@@ -89,6 +90,11 @@ cJSON * get_model_uipins(void);
  * @brief 获取数据模型UOPINS节点
  */
 cJSON * get_model_uopins(void);
+
+/**
+ * @brief 获取数据模型TXT节点
+ */
+cJSON * get_model_txt(void);
 
 
 

@@ -11,6 +11,7 @@ cJSON *model_dipins = NULL;
 cJSON *model_dopins = NULL;
 cJSON *model_uipins = NULL;
 cJSON *model_uopins = NULL;
+cJSON *model_txt = NULL;
 
 /**
  * @brief 初始化数据模型根节点资源
@@ -26,12 +27,7 @@ void model_init(void) {
     cJSON_AddItemToObject(model_root, MODEL_GLOBAL, model_global);
     //插入MODEL_INDEX节点
     model_index = cJSON_CreateObject();
-    cJSON_AddStringToObject(model_index, "appversion",__TIME__);
-    cJSON_AddStringToObject(model_index, "W",__TIME__);
-    cJSON_AddStringToObject(model_index, "C",__TIME__);
-    cJSON_AddStringToObject(model_index, "V",__TIME__);
-    cJSON_AddStringToObject(model_index, "RET",__TIME__);
-    cJSON_AddStringToObject(model_index, "RETW",__TIME__);
+    cJSON_AddStringToObject(model_index, "appversion","");
     cJSON_AddItemToObject(model_root, MODEL_INDEX, model_index);
     //插入MODEL_SYSTEM节点
     model_system = cJSON_CreateObject();
@@ -100,7 +96,19 @@ void model_init(void) {
     cJSON_AddStringToObject(model_uopins, "V004", "[标签04]");
     cJSON_AddStringToObject(model_uopins, "V005", "[标签05]");
     cJSON_AddItemToObject(model_root, MODEL_UOPINS, model_uopins);
-    
+    //插入MODEL_TXT节点
+    model_txt = cJSON_CreateObject();
+    cJSON_AddStringToObject(model_txt, "V001", "[标签01]");
+    cJSON_AddStringToObject(model_txt, "V002", "[标签02]");
+    cJSON_AddStringToObject(model_txt, "V003", "[标签03]");
+    cJSON_AddStringToObject(model_txt, "V004", "[标签04]");
+    cJSON_AddStringToObject(model_txt, "V005", "[标签05]");
+    cJSON_AddStringToObject(model_txt, "W","");
+    cJSON_AddStringToObject(model_txt, "C","");
+    cJSON_AddStringToObject(model_txt, "V","");
+    cJSON_AddStringToObject(model_txt, "RET","");
+    cJSON_AddStringToObject(model_txt, "RETW","");
+    cJSON_AddItemToObject(model_root, MODEL_TXT, model_txt);
 }
 
 cJSON * get_model_root(void) {
@@ -140,4 +148,7 @@ cJSON * get_model_uipins(void) {
 }
 cJSON * get_model_uopins(void) {
     return model_uopins;
+}
+cJSON * get_model_txt(void) {
+    return model_txt;
 }

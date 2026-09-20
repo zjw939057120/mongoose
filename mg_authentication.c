@@ -1,7 +1,5 @@
 #include "mg_authentication.h"
-#include "mg_controller.h"
 #include "mg_model.h"
-#include "mg_view.h"
 
 
 /**
@@ -37,8 +35,13 @@ void  authentication_logout_session(struct mg_connection *c) {
               c->is_tls ? "Secure; " : "");
   mg_http_reply(c, 302, cookie, "ok\n");
 }
-
-void post_authentication_login_process(struct mg_connection *c, struct mg_http_message *hm) {
+/**
+ * @brief 处理登录请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ */
+void post_authentication_login_handle(struct mg_connection *c, struct mg_http_message *hm) {
     //认证登录
     char post_username[64] = {0};
     char post_password[64] = {0};
@@ -59,8 +62,43 @@ void post_authentication_login_process(struct mg_connection *c, struct mg_http_m
     authentication_login_session(c,var_user,var_pwd);
 }
 
-void post_authentication_logout_process(struct mg_connection *c, struct mg_http_message *hm) {
+/**
+ * @brief 处理注销请求
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ */
+void post_authentication_logout_handle(struct mg_connection *c, struct mg_http_message *hm) {
     //认证登录退出
     authentication_logout_session(c);
 }
+/**
+ * @brief 检查是否需要登录
+ * 
+ * @param c 连接指针
+ * @param hm HTTP消息指针
+ * @return true 如果需要登录，否则返回false
+ */
+ bool has_access_token(struct mg_connection *c, struct mg_http_message *hm) {
+// 1. 获取完整的 Cookie 报头
+struct mg_str *cookie_hdr = mg_http_get_header(hm, "Cookie");
 
+char var_access_token[64] = {0};
+
+if (cookie_hdr != NULL) {
+    // 2. 从 Cookie 报头中提取 access_token 的值
+    struct mg_str token = mg_http_get_header_var(*cookie_hdr, mg_str("access_token"));
+    
+    // 判断是否成功提取到值（mg_str 的 len > 0 表示有值）
+    if (token.len > 0) {
+        // 将 mg_str 安全地拷贝到你的缓冲区中
+        snprintf(var_access_token, sizeof(var_access_token), "%.*s", (int)token.len, token.buf);
+        return true;
+    } else {
+        return false;
+    }
+} else {
+    return false;
+}
+    return strcmp(var_access_token, "") == 0;
+ }
