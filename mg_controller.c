@@ -1,4 +1,5 @@
 #include "mg_controller.h"
+#include "mg_authentication.h"
 #include "mg_model.h"
 #include "mg_view.h"
 
