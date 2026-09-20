@@ -8,7 +8,6 @@
 //    any other URI serves static files from s_root_dir
 // Data and results are JSON strings
 
-#include "mongoose.h"
 #include <pthread.h>
 #include "mg_common.h"
 #include "mg_router.h"

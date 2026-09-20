@@ -5,6 +5,13 @@
 extern "C" {
 #endif
 
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "third_party/mongoose/mongoose.h"
+#include "third_party/cJSON/cJSON.h"
+#include "third_party/cJSON/cJSON_Utils.h"
+
 #define HTTP_ADDR "http://0.0.0.0:80"  // HTTP port
 #define ROOT_DIR "web_root"
 #define HTML_SUFFIX ".html"

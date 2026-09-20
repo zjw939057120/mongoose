@@ -1,7 +1,4 @@
 #include "mg_controller.h"
-#include "cJSON.h"
-#include "cJSON_Utils.h"
-#include "mg_common.h"
 #include "mg_model.h"
 #include "mg_view.h"
 
